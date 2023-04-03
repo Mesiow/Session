@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Session
 //
-//  Created by Chris W on 3/28/23.
+//  Created by Mesiow on 3/28/23.
 //
 
 import UIKit

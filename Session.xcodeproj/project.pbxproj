@@ -9,23 +9,29 @@
 /* Begin PBXBuildFile section */
 		C0EAB54029D34EB700CF37CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB53F29D34EB700CF37CE /* AppDelegate.swift */; };
 		C0EAB54229D34EB700CF37CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB54129D34EB700CF37CE /* SceneDelegate.swift */; };
-		C0EAB54429D34EB700CF37CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB54329D34EB700CF37CE /* ViewController.swift */; };
+		C0EAB54429D34EB700CF37CE /* SessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB54329D34EB700CF37CE /* SessionsViewController.swift */; };
 		C0EAB54729D34EB700CF37CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0EAB54529D34EB700CF37CE /* Main.storyboard */; };
 		C0EAB54A29D34EB700CF37CE /* Session.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB54829D34EB700CF37CE /* Session.xcdatamodeld */; };
 		C0EAB54C29D34EB800CF37CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0EAB54B29D34EB800CF37CE /* Assets.xcassets */; };
 		C0EAB54F29D34EB800CF37CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0EAB54D29D34EB800CF37CE /* LaunchScreen.storyboard */; };
+		C0EAB55A29D4955C00CF37CE /* SessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB55829D4955C00CF37CE /* SessionCell.swift */; };
+		C0EAB55D29D5F52700CF37CE /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB55C29D5F52700CF37CE /* Colors.swift */; };
+		C0EAB55F29D747CE00CF37CE /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB55E29D747CE00CF37CE /* SessionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C0EAB53C29D34EB700CF37CE /* Session.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Session.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0EAB53F29D34EB700CF37CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0EAB54129D34EB700CF37CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C0EAB54329D34EB700CF37CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C0EAB54329D34EB700CF37CE /* SessionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsViewController.swift; sourceTree = "<group>"; };
 		C0EAB54629D34EB700CF37CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C0EAB54929D34EB700CF37CE /* Session.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Session.xcdatamodel; sourceTree = "<group>"; };
 		C0EAB54B29D34EB800CF37CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0EAB54E29D34EB800CF37CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0EAB55029D34EB800CF37CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0EAB55829D4955C00CF37CE /* SessionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCell.swift; sourceTree = "<group>"; };
+		C0EAB55C29D5F52700CF37CE /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		C0EAB55E29D747CE00CF37CE /* SessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +64,35 @@
 		C0EAB53E29D34EB700CF37CE /* Session */ = {
 			isa = PBXGroup;
 			children = (
+				C0EAB55729D4953200CF37CE /* Views */,
 				C0EAB53F29D34EB700CF37CE /* AppDelegate.swift */,
 				C0EAB54129D34EB700CF37CE /* SceneDelegate.swift */,
-				C0EAB54329D34EB700CF37CE /* ViewController.swift */,
-				C0EAB54529D34EB700CF37CE /* Main.storyboard */,
+				C0EAB55629D34F2100CF37CE /* Controllers */,
 				C0EAB54B29D34EB800CF37CE /* Assets.xcassets */,
 				C0EAB54D29D34EB800CF37CE /* LaunchScreen.storyboard */,
 				C0EAB55029D34EB800CF37CE /* Info.plist */,
 				C0EAB54829D34EB700CF37CE /* Session.xcdatamodeld */,
+				C0EAB55C29D5F52700CF37CE /* Colors.swift */,
 			);
 			path = Session;
+			sourceTree = "<group>";
+		};
+		C0EAB55629D34F2100CF37CE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C0EAB54329D34EB700CF37CE /* SessionsViewController.swift */,
+				C0EAB55E29D747CE00CF37CE /* SessionViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C0EAB55729D4953200CF37CE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C0EAB54529D34EB700CF37CE /* Main.storyboard */,
+				C0EAB55829D4955C00CF37CE /* SessionCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,8 +167,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0EAB54A29D34EB700CF37CE /* Session.xcdatamodeld in Sources */,
-				C0EAB54429D34EB700CF37CE /* ViewController.swift in Sources */,
+				C0EAB55D29D5F52700CF37CE /* Colors.swift in Sources */,
+				C0EAB54429D34EB700CF37CE /* SessionsViewController.swift in Sources */,
+				C0EAB55A29D4955C00CF37CE /* SessionCell.swift in Sources */,
 				C0EAB54029D34EB700CF37CE /* AppDelegate.swift in Sources */,
+				C0EAB55F29D747CE00CF37CE /* SessionViewController.swift in Sources */,
 				C0EAB54229D34EB700CF37CE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,11 +322,13 @@
 				DEVELOPMENT_TEAM = 822D8Y7G66;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Session/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -322,11 +352,13 @@
 				DEVELOPMENT_TEAM = 822D8Y7G66;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Session/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
