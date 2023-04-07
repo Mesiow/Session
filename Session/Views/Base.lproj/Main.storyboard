@@ -28,7 +28,7 @@
         <!--Sessions-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SessionsViewController" customModule="Session" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SessionCollectionViewController" customModule="Session" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OxR-Cd-HhI">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -169,7 +169,13 @@
                             <constraint firstItem="9lN-9t-Z0U" firstAttribute="trailing" secondItem="aAK-8T-TM6" secondAttribute="trailing" id="rbM-6L-oM0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="6VB-50-nBb"/>
+                    <navigationItem key="navigationItem" id="6VB-50-nBb">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="XEd-gm-fz5">
+                            <connections>
+                                <action selector="deleteButtonPressed:" destination="apT-3W-tNs" id="9du-Bx-Wbh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="beginButton" destination="RPb-Je-VgR" id="MYL-y1-jNg"/>
                         <outlet property="sessionCreatedLabel" destination="SRF-8v-Obh" id="owr-YJ-U2R"/>

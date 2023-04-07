@@ -6,23 +6,15 @@
 //
 
 import UIKit
+import CoreData
 
 struct Constants {
     static let cellReuseIdentifier = "ReusableSessionCell";
     static let cellNibName = "SessionCell"
 }
 
-struct Session {
-    var name : String!
-    var color : UIColor!
-    var created = Date();
-    var minutes : Int = 0;
-    var hours : Int = 0;
-    var seconds : Int = 0;
-    var secondsCounter : Int = 0;
-}
-
-class SessionsViewController: UIViewController {
+class SessionCollectionViewController: UIViewController {
+   
     @IBOutlet weak var collectionView: UICollectionView!
 
     var sessions : [Session] = [];
@@ -30,6 +22,9 @@ class SessionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCollectionView();
+        
+        //load collection from core data
+        loadSessionCollection();
     }
     
     
@@ -58,6 +53,9 @@ class SessionsViewController: UIViewController {
             
             let session = sessions[index.row];
             destinationVC.session = session;
+            destinationVC.index = index;
+            destinationVC.delegate = self;
+            
             print("preparing segue");
         }
     }
@@ -68,9 +66,13 @@ class SessionsViewController: UIViewController {
         
         let action = UIAlertAction(title: "Add", style: .default) { [self]
             (action) in
-            var newSession = Session();
+            
+            let newSession = Session(context: CoreDataContext.context);
             newSession.name = textField.text!;
-            newSession.color = UIColor.randomColor();
+            newSession.color = UIColor.randomColor().toHex();
+            newSession.created = Date();
+            newSession.active = false;
+            newSession.totalSeconds = 0;
             
             self.sessions.append(newSession);
             self.insertSessionIntoCollection();
@@ -97,13 +99,27 @@ class SessionsViewController: UIViewController {
         //insert new item with fade in animation
         let insertedIndexPath = IndexPath(item: collectionView.numberOfItems(inSection: 0), section: 0);
             collectionView.insertItems(at: [insertedIndexPath]);
+        
+        saveSessionCollection();
+    }
+    
+    func stopOtherActiveSessions(at indexPath: IndexPath){
+        //when the user begins the timer on a new session we stop other sessions that may have been running elsewhere
+        for i in 0..<sessions.count {
+            print("sesh")
+            if i != indexPath.row {
+                let session = sessions[i];
+                session.active = false;
+            }
+        }
+        saveSessionCollection();
     }
 }
 
 
 
 //MARK: - Collection View data methods
-extension SessionsViewController : UICollectionViewDelegate, UICollectionViewDataSource {
+extension SessionCollectionViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return sessions.count;
@@ -113,7 +129,9 @@ extension SessionsViewController : UICollectionViewDelegate, UICollectionViewDat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellReuseIdentifier, for: indexPath) as! SessionCell;
         
         cell.title.text = sessions[indexPath.row].name;
-        cell.setBackgroundColor(sessions[indexPath.row].color);
+        
+        let hexStringColor = sessions[indexPath.row].color;
+        cell.setBackgroundColor(UIColor(hex: hexStringColor!)!);
         
         return cell;
     }
@@ -141,9 +159,8 @@ extension SessionsViewController : UICollectionViewDelegate, UICollectionViewDat
 }
 
 
-extension SessionsViewController : UICollectionViewDelegateFlowLayout {
+extension SessionCollectionViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        print("inset set");
         return UIEdgeInsets(top: 20.0, left: 10.0, bottom: 1.0, right: 10.0);
     }
     

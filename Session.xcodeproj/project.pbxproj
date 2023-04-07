@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C052382D29DB61C60021A69C /* SessionModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C052382B29DB61C60021A69C /* SessionModel.xcdatamodeld */; };
+		C052382F29DB647F0021A69C /* SessionCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C052382E29DB647F0021A69C /* SessionCoreData.swift */; };
 		C0EAB54029D34EB700CF37CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB53F29D34EB700CF37CE /* AppDelegate.swift */; };
 		C0EAB54229D34EB700CF37CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB54129D34EB700CF37CE /* SceneDelegate.swift */; };
-		C0EAB54429D34EB700CF37CE /* SessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB54329D34EB700CF37CE /* SessionsViewController.swift */; };
+		C0EAB54429D34EB700CF37CE /* SessionCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB54329D34EB700CF37CE /* SessionCollectionViewController.swift */; };
 		C0EAB54729D34EB700CF37CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0EAB54529D34EB700CF37CE /* Main.storyboard */; };
-		C0EAB54A29D34EB700CF37CE /* Session.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB54829D34EB700CF37CE /* Session.xcdatamodeld */; };
 		C0EAB54C29D34EB800CF37CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0EAB54B29D34EB800CF37CE /* Assets.xcassets */; };
 		C0EAB54F29D34EB800CF37CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0EAB54D29D34EB800CF37CE /* LaunchScreen.storyboard */; };
 		C0EAB55A29D4955C00CF37CE /* SessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB55829D4955C00CF37CE /* SessionCell.swift */; };
@@ -20,12 +21,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C052382C29DB61C60021A69C /* SessionModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SessionModel.xcdatamodel; sourceTree = "<group>"; };
+		C052382E29DB647F0021A69C /* SessionCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCoreData.swift; sourceTree = "<group>"; };
 		C0EAB53C29D34EB700CF37CE /* Session.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Session.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0EAB53F29D34EB700CF37CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0EAB54129D34EB700CF37CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C0EAB54329D34EB700CF37CE /* SessionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsViewController.swift; sourceTree = "<group>"; };
+		C0EAB54329D34EB700CF37CE /* SessionCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCollectionViewController.swift; sourceTree = "<group>"; };
 		C0EAB54629D34EB700CF37CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C0EAB54929D34EB700CF37CE /* Session.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Session.xcdatamodel; sourceTree = "<group>"; };
 		C0EAB54B29D34EB800CF37CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0EAB54E29D34EB800CF37CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0EAB55029D34EB800CF37CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C052382A29DB619A0021A69C /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				C052382B29DB61C60021A69C /* SessionModel.xcdatamodeld */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
 		C0EAB53329D34EB700CF37CE = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +74,7 @@
 		C0EAB53E29D34EB700CF37CE /* Session */ = {
 			isa = PBXGroup;
 			children = (
+				C052382A29DB619A0021A69C /* DataModel */,
 				C0EAB55729D4953200CF37CE /* Views */,
 				C0EAB53F29D34EB700CF37CE /* AppDelegate.swift */,
 				C0EAB54129D34EB700CF37CE /* SceneDelegate.swift */,
@@ -71,7 +82,6 @@
 				C0EAB54B29D34EB800CF37CE /* Assets.xcassets */,
 				C0EAB54D29D34EB800CF37CE /* LaunchScreen.storyboard */,
 				C0EAB55029D34EB800CF37CE /* Info.plist */,
-				C0EAB54829D34EB700CF37CE /* Session.xcdatamodeld */,
 				C0EAB55C29D5F52700CF37CE /* Colors.swift */,
 			);
 			path = Session;
@@ -80,8 +90,9 @@
 		C0EAB55629D34F2100CF37CE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C0EAB54329D34EB700CF37CE /* SessionsViewController.swift */,
+				C0EAB54329D34EB700CF37CE /* SessionCollectionViewController.swift */,
 				C0EAB55E29D747CE00CF37CE /* SessionViewController.swift */,
+				C052382E29DB647F0021A69C /* SessionCoreData.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -166,12 +177,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0EAB54A29D34EB700CF37CE /* Session.xcdatamodeld in Sources */,
+				C052382F29DB647F0021A69C /* SessionCoreData.swift in Sources */,
 				C0EAB55D29D5F52700CF37CE /* Colors.swift in Sources */,
-				C0EAB54429D34EB700CF37CE /* SessionsViewController.swift in Sources */,
+				C0EAB54429D34EB700CF37CE /* SessionCollectionViewController.swift in Sources */,
 				C0EAB55A29D4955C00CF37CE /* SessionCell.swift in Sources */,
 				C0EAB54029D34EB700CF37CE /* AppDelegate.swift in Sources */,
 				C0EAB55F29D747CE00CF37CE /* SessionViewController.swift in Sources */,
+				C052382D29DB61C60021A69C /* SessionModel.xcdatamodeld in Sources */,
 				C0EAB54229D34EB700CF37CE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,13 +408,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C0EAB54829D34EB700CF37CE /* Session.xcdatamodeld */ = {
+		C052382B29DB61C60021A69C /* SessionModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				C0EAB54929D34EB700CF37CE /* Session.xcdatamodel */,
+				C052382C29DB61C60021A69C /* SessionModel.xcdatamodel */,
 			);
-			currentVersion = C0EAB54929D34EB700CF37CE /* Session.xcdatamodel */;
-			path = Session.xcdatamodeld;
+			currentVersion = C052382C29DB61C60021A69C /* SessionModel.xcdatamodel */;
+			path = SessionModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
