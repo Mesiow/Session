@@ -32,6 +32,7 @@ extension SessionCollectionViewController {
     }
     
     func reloadSessionCollection(){
+        saveSessionCollection();
         loadSessionCollection();
         collectionView.reloadData();
     }

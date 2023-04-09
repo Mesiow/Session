@@ -25,6 +25,11 @@ class SessionCollectionViewController: UIViewController {
         
         //load collection from core data
         loadSessionCollection();
+        
+        navigationController?.navigationBar.tintColor = UIColor.systemYellow;
+        //navigationController?.navigationBar.backgroundColor = UIColor.systemYellow;
+        
+        print(sessions.count);
     }
     
     
@@ -39,7 +44,7 @@ class SessionCollectionViewController: UIViewController {
         let layout = UICollectionViewFlowLayout();
         layout.scrollDirection = .vertical;
         layout.minimumLineSpacing = 15;
-        layout.minimumInteritemSpacing = 4;
+        layout.minimumInteritemSpacing = 1;
         
         collectionView.setCollectionViewLayout(layout, animated: true);
         collectionView.allowsSelection = true;
@@ -69,7 +74,11 @@ class SessionCollectionViewController: UIViewController {
             
             let newSession = Session(context: CoreDataContext.context);
             newSession.name = textField.text!;
-            newSession.color = UIColor.randomColor().toHex();
+            
+            newSession.gradientFirstColor = UIColor.randomColor().toHex();
+            newSession.gradientSecondColor =
+                UIColor.randomColor().toHex();
+            
             newSession.created = Date();
             newSession.active = false;
             newSession.totalSeconds = 0;
@@ -128,11 +137,19 @@ extension SessionCollectionViewController : UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellReuseIdentifier, for: indexPath) as! SessionCell;
         
+       
+        let color1 = UIColor(hex: sessions[indexPath.row].gradientFirstColor!)!;
+        let color2 = UIColor(hex: sessions[indexPath.row].gradientSecondColor!)!;
+        
+        let gradients : [CGColor] = [color1.cgColor, color2.cgColor];
+        
+        cell.setBackgroundGradient(gradients);
+        
         cell.title.text = sessions[indexPath.row].name;
+        cell.hours.text = String(Int32(sessions[indexPath.row].totalSeconds / 3600)) + " hours";
+       // cell.title.textColor = color1.isDarkColor ? .white : .black;
         
-        let hexStringColor = sessions[indexPath.row].color;
-        cell.setBackgroundColor(UIColor(hex: hexStringColor!)!);
-        
+    
         return cell;
     }
     
@@ -166,9 +183,9 @@ extension SessionCollectionViewController : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             let layout = collectionViewLayout as! UICollectionViewFlowLayout;
-            let widthPerItem = collectionView.frame.width / 2 - layout.minimumInteritemSpacing;
+            let widthPerItem = collectionView.frame.width /// 2 - layout.minimumInteritemSpacing;
            
-            return CGSize(width: widthPerItem - 10, height: 85)
+            return CGSize(width: widthPerItem, height: 85)
     }
 }
 

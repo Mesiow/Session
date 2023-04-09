@@ -41,6 +41,7 @@ class SessionViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         print("view dissappearing");
         stopSessionIfActive();
+        delegate.collectionView.reloadData();
     }
     
     @objc private func viewGoingIntoBackground(){
@@ -59,13 +60,13 @@ class SessionViewController: UIViewController {
     }
     
     private func setupUi() {
-        setupButton(stopButton, label: "Stop", color: UIColor.systemRed)
+        setupButton(stopButton, label: "End", color: UIColor.systemRed)
         setupButton(beginButton, label: "Begin", color: UIColor.systemGreen)
         
         stopButton.isEnabled = false;
         
         sessionNameLabel.text = session.name;
-        sessionNameLabel.textColor = UIColor(hex: session.color!);
+        sessionNameLabel.textColor = UIColor(hex: session.gradientFirstColor!);
         sessionCreatedLabel.text = session.created!.formatted(date: .complete, time: .omitted);
     }
     
@@ -97,7 +98,7 @@ class SessionViewController: UIViewController {
     
     
     @IBAction func deleteButtonPressed(_ sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: "Are you sure you want to delete this session?", message: "", preferredStyle: .alert);
+        let alert = UIAlertController(title: "Delete this session?", message: "", preferredStyle: .alert);
         
         let action = UIAlertAction(title: "Delete", style: .destructive) { [self]
             (action) in
@@ -122,7 +123,7 @@ class SessionViewController: UIViewController {
         stopButton.isEnabled = true;
         beginButton.isEnabled = false;
         
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerCallback), userInfo: nil, repeats: true);
+        timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerCallback), userInfo: nil, repeats: true);
     }
     
     func stopSessionIfActive(){
