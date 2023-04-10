@@ -115,7 +115,6 @@ class SessionCollectionViewController: UIViewController {
     func stopOtherActiveSessions(at indexPath: IndexPath){
         //when the user begins the timer on a new session we stop other sessions that may have been running elsewhere
         for i in 0..<sessions.count {
-            print("sesh")
             if i != indexPath.row {
                 let session = sessions[i];
                 session.active = false;
@@ -182,7 +181,7 @@ extension SessionCollectionViewController : UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            let layout = collectionViewLayout as! UICollectionViewFlowLayout;
+            //let layout = collectionViewLayout as! UICollectionViewFlowLayout;
             let widthPerItem = collectionView.frame.width /// 2 - layout.minimumInteritemSpacing;
            
             return CGSize(width: widthPerItem, height: 85)

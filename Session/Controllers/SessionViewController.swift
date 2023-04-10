@@ -123,7 +123,7 @@ class SessionViewController: UIViewController {
         stopButton.isEnabled = true;
         beginButton.isEnabled = false;
         
-        timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerCallback), userInfo: nil, repeats: true);
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerCallback), userInfo: nil, repeats: true);
     }
     
     func stopSessionIfActive(){

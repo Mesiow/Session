@@ -23,6 +23,7 @@
 /* Begin PBXFileReference section */
 		C052382C29DB61C60021A69C /* SessionModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SessionModel.xcdatamodel; sourceTree = "<group>"; };
 		C052382E29DB647F0021A69C /* SessionCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCoreData.swift; sourceTree = "<group>"; };
+		C052385329E462160021A69C /* SessionModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SessionModel 2.xcdatamodel"; sourceTree = "<group>"; };
 		C0EAB53C29D34EB700CF37CE /* Session.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Session.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0EAB53F29D34EB700CF37CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0EAB54129D34EB700CF37CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -411,6 +412,7 @@
 		C052382B29DB61C60021A69C /* SessionModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				C052385329E462160021A69C /* SessionModel 2.xcdatamodel */,
 				C052382C29DB61C60021A69C /* SessionModel.xcdatamodel */,
 			);
 			currentVersion = C052382C29DB61C60021A69C /* SessionModel.xcdatamodel */;
