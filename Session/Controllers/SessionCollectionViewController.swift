@@ -26,10 +26,9 @@ class SessionCollectionViewController: UIViewController {
         //load collection from core data
         loadSessionCollection();
         
-        navigationController?.navigationBar.tintColor = UIColor.systemYellow;
-        //navigationController?.navigationBar.backgroundColor = UIColor.systemYellow;
-        
-        print(sessions.count);
+        if let nc = navigationController {
+            nc.navigationBar.tintColor = UIColor(hex: "0BBFF8");
+        }
     }
     
     
