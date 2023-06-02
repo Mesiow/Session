@@ -2,7 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5Se-Ub-9l7">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -151,6 +153,21 @@
                                                     <constraint firstAttribute="width" constant="295" id="amb-3d-bIU"/>
                                                 </constraints>
                                             </stackView>
+                                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mtz-eA-NFJ">
+                                                <rect key="frame" x="0.0" y="304" width="393" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <items>
+                                                    <navigationItem id="edl-9V-UrP">
+                                                        <barButtonItem key="rightBarButtonItem" title="Timer" image="timer" catalog="system" id="87k-Aa-9hj">
+                                                            <color key="tintColor" name="AccentColor"/>
+                                                            <connections>
+                                                                <action selector="timerButtonPressed:" destination="apT-3W-tNs" id="1f6-x5-jAt"/>
+                                                            </connections>
+                                                        </barButtonItem>
+                                                    </navigationItem>
+                                                </items>
+                                                <navigationBarAppearance key="standardAppearance"/>
+                                            </navigationBar>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="IeA-2J-fsW" firstAttribute="centerX" secondItem="dUo-AG-kO3" secondAttribute="centerX" id="HgE-AQ-tiP"/>
@@ -178,19 +195,41 @@
                     </navigationItem>
                     <connections>
                         <outlet property="beginButton" destination="RPb-Je-VgR" id="MYL-y1-jNg"/>
+                        <outlet property="bottomNavBar" destination="Mtz-eA-NFJ" id="EM0-aW-jw1"/>
                         <outlet property="sessionCreatedLabel" destination="SRF-8v-Obh" id="owr-YJ-U2R"/>
                         <outlet property="sessionNameLabel" destination="7eW-Uh-3EJ" id="aEp-cY-cap"/>
                         <outlet property="stopButton" destination="YwY-6I-zIa" id="Ss2-vy-5bU"/>
                         <outlet property="timeLabel" destination="8tY-8f-N1z" id="MIk-jF-cOd"/>
+                        <segue destination="hLr-c4-hey" kind="presentation" identifier="goToTimerSegue" id="IsF-jw-mDd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hxf-xk-ELY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="939.69465648854953" y="3.5211267605633805"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="qmI-9F-Edo">
+            <objects>
+                <viewController id="hLr-c4-hey" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mV5-ki-VAh">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="MKT-Gy-abN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Zo5-vg-Th4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GHk-i9-8El" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1888" y="4"/>
+        </scene>
     </scenes>
     <resources>
         <image name="plus.app" catalog="system" width="128" height="114"/>
+        <image name="timer" catalog="system" width="128" height="123"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

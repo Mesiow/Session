@@ -16,6 +16,8 @@ class SessionViewController: UIViewController {
     @IBOutlet weak var sessionNameLabel: UILabel!
     @IBOutlet weak var sessionCreatedLabel: UILabel!
     
+    @IBOutlet weak var bottomNavBar: UINavigationBar!
+    
     var session : Session!
     var timer = Timer();
     
@@ -34,7 +36,6 @@ class SessionViewController: UIViewController {
         
         notificationCenter.addObserver(self, selector: #selector(viewEnteringForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         
-        print("did load");
         resumeSessionIfActive();
     }
     
@@ -60,6 +61,17 @@ class SessionViewController: UIViewController {
     }
     
     private func setupUi() {
+        //transluscent nav bar
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithDefaultBackground()
+        appearance.backgroundImage = UIImage();
+        appearance.backgroundColor = UIColor.clear;
+        appearance.shadowImage = UIImage();
+        appearance.shadowColor = UIColor.clear
+        appearance.backgroundEffect = nil
+        
+        bottomNavBar.standardAppearance = appearance;
+        
         setupButton(stopButton, label: "End", color: UIColor.systemRed)
         setupButton(beginButton, label: "Begin", color: UIColor.systemGreen)
         
@@ -115,6 +127,13 @@ class SessionViewController: UIViewController {
         self.present(alert, animated: true, completion: nil);
         
     }
+    
+    @IBAction func timerButtonPressed(_ sender: UIBarButtonItem) {
+        //present timer view
+        print("timer")
+        performSegue(withIdentifier: "goToTimerSegue", sender: self);
+    }
+    
     
     func activate(){
         session.active = true;
