@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C052382D29DB61C60021A69C /* SessionModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C052382B29DB61C60021A69C /* SessionModel.xcdatamodeld */; };
 		C052382F29DB647F0021A69C /* SessionCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C052382E29DB647F0021A69C /* SessionCoreData.swift */; };
+		C0E194C12A2BA1D80002806C /* SessionTimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E194C02A2BA1D80002806C /* SessionTimerController.swift */; };
 		C0EAB54029D34EB700CF37CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB53F29D34EB700CF37CE /* AppDelegate.swift */; };
 		C0EAB54229D34EB700CF37CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB54129D34EB700CF37CE /* SceneDelegate.swift */; };
 		C0EAB54429D34EB700CF37CE /* SessionCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAB54329D34EB700CF37CE /* SessionCollectionViewController.swift */; };
@@ -24,6 +25,7 @@
 		C052382C29DB61C60021A69C /* SessionModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SessionModel.xcdatamodel; sourceTree = "<group>"; };
 		C052382E29DB647F0021A69C /* SessionCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCoreData.swift; sourceTree = "<group>"; };
 		C052385329E462160021A69C /* SessionModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SessionModel 2.xcdatamodel"; sourceTree = "<group>"; };
+		C0E194C02A2BA1D80002806C /* SessionTimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTimerController.swift; sourceTree = "<group>"; };
 		C0EAB53C29D34EB700CF37CE /* Session.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Session.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0EAB53F29D34EB700CF37CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0EAB54129D34EB700CF37CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				C0EAB54329D34EB700CF37CE /* SessionCollectionViewController.swift */,
 				C0EAB55E29D747CE00CF37CE /* SessionViewController.swift */,
 				C052382E29DB647F0021A69C /* SessionCoreData.swift */,
+				C0E194C02A2BA1D80002806C /* SessionTimerController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				C0EAB55F29D747CE00CF37CE /* SessionViewController.swift in Sources */,
 				C052382D29DB61C60021A69C /* SessionModel.xcdatamodeld in Sources */,
 				C0EAB54229D34EB700CF37CE /* SceneDelegate.swift in Sources */,
+				C0E194C12A2BA1D80002806C /* SessionTimerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

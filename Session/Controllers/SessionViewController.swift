@@ -82,7 +82,7 @@ class SessionViewController: UIViewController {
         sessionCreatedLabel.text = session.created!.formatted(date: .complete, time: .omitted);
     }
     
-    private func setupButton(_ button : UIButton, label : String, color: UIColor) {
+    func setupButton(_ button : UIButton, label : String, color: UIColor) {
         button.setTitle(label, for: .normal);
         button.frame.size.width = 75.0;
         button.frame.size.height = 75.0
@@ -128,10 +128,16 @@ class SessionViewController: UIViewController {
         
     }
     
-    @IBAction func timerButtonPressed(_ sender: UIBarButtonItem) {
-        //present timer view
-        print("timer")
-        performSegue(withIdentifier: "goToTimerSegue", sender: self);
+   
+    @IBAction func timerButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToTimer", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToTimer" {
+            let destination = segue.destination as! SessionTimerController;
+            destination.delegate = self;
+        }
     }
     
     

@@ -158,11 +158,30 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <items>
                                                     <navigationItem id="edl-9V-UrP">
-                                                        <barButtonItem key="rightBarButtonItem" title="Timer" image="timer" catalog="system" id="87k-Aa-9hj">
-                                                            <color key="tintColor" name="AccentColor"/>
-                                                            <connections>
-                                                                <action selector="timerButtonPressed:" destination="apT-3W-tNs" id="1f6-x5-jAt"/>
-                                                            </connections>
+                                                        <barButtonItem key="rightBarButtonItem" style="plain" id="ZDB-EE-BgK">
+                                                            <view key="customView" contentMode="scaleToFill" id="IZ9-DN-d9X">
+                                                                <rect key="frame" x="296" y="2.6666666666666679" width="81" height="39"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AUv-4I-jAV">
+                                                                        <rect key="frame" x="37" y="4" width="32" height="23"/>
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain" image="timer" catalog="system"/>
+                                                                        <connections>
+                                                                            <action selector="timerButtonPressed:" destination="apT-3W-tNs" eventType="touchUpInside" id="oUv-43-6Gz"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyJ-cY-SbV">
+                                                                        <rect key="frame" x="37" y="27" width="32" height="12"/>
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                        <color key="textColor" name="AccentColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            </view>
                                                         </barButtonItem>
                                                     </navigationItem>
                                                 </items>
@@ -200,28 +219,70 @@
                         <outlet property="sessionNameLabel" destination="7eW-Uh-3EJ" id="aEp-cY-cap"/>
                         <outlet property="stopButton" destination="YwY-6I-zIa" id="Ss2-vy-5bU"/>
                         <outlet property="timeLabel" destination="8tY-8f-N1z" id="MIk-jF-cOd"/>
-                        <segue destination="hLr-c4-hey" kind="presentation" identifier="goToTimerSegue" id="IsF-jw-mDd"/>
+                        <segue destination="hLr-c4-hey" kind="presentation" identifier="goToTimer" id="IsF-jw-mDd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hxf-xk-ELY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="939.69465648854953" y="3.5211267605633805"/>
         </scene>
-        <!--View Controller-->
+        <!--Session Timer Controller-->
         <scene sceneID="qmI-9F-Edo">
             <objects>
-                <viewController id="hLr-c4-hey" sceneMemberID="viewController">
+                <viewController id="hLr-c4-hey" customClass="SessionTimerController" customModule="Session" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mV5-ki-VAh">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JH0-Gx-b0n">
+                                <rect key="frame" x="16" y="259" width="361" height="179"/>
+                            </datePicker>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="145" translatesAutoresizingMaskIntoConstraints="NO" id="mPZ-qV-275">
+                                <rect key="frame" x="49" y="454" width="295" height="75"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hiu-Vl-KdR" userLabel="CancelButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Button" cornerStyle="capsule"/>
+                                        <connections>
+                                            <action selector="stopButtonReleased:" destination="apT-3W-tNs" eventType="touchUpInside" id="L0A-29-F7I"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTc-8V-0am" userLabel="StartButton">
+                                        <rect key="frame" x="220" y="0.0" width="75" height="75"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Button" cornerStyle="capsule"/>
+                                        <connections>
+                                            <action selector="beginButtonReleased:" destination="apT-3W-tNs" eventType="touchUpInside" id="k77-SU-omj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="YgL-kR-9xh"/>
+                                    <constraint firstAttribute="width" constant="295" id="jQo-WK-xnp"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="MKT-Gy-abN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="JH0-Gx-b0n" firstAttribute="leading" secondItem="MKT-Gy-abN" secondAttribute="leading" constant="16" id="6rf-uZ-kPx"/>
+                            <constraint firstItem="mPZ-qV-275" firstAttribute="centerX" secondItem="mV5-ki-VAh" secondAttribute="centerX" id="GWa-Zs-BJG"/>
+                            <constraint firstItem="mPZ-qV-275" firstAttribute="top" secondItem="JH0-Gx-b0n" secondAttribute="bottom" constant="16" id="M8F-bO-lVE"/>
+                            <constraint firstItem="JH0-Gx-b0n" firstAttribute="top" secondItem="MKT-Gy-abN" secondAttribute="top" constant="200" id="Uhi-9N-h5X"/>
+                            <constraint firstItem="mPZ-qV-275" firstAttribute="centerY" secondItem="mV5-ki-VAh" secondAttribute="centerY" constant="100" id="l6w-IU-hnd"/>
+                            <constraint firstItem="MKT-Gy-abN" firstAttribute="trailing" secondItem="JH0-Gx-b0n" secondAttribute="trailing" constant="16" id="zgD-4D-L8Y"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Zo5-vg-Th4"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="hiu-Vl-KdR" id="5LH-9x-vhj"/>
+                        <outlet property="startButton" destination="qTc-8V-0am" id="SVD-HD-oJ7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GHk-i9-8El" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1888" y="4"/>
+            <point key="canvasLocation" x="1887.7862595419847" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>
