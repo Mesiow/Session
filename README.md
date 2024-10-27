@@ -37,11 +37,11 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
- <img src="/Resources/App.gif" width="250" height="530"/>
+ <img src="/Resources/session.gif" width="250" height="530"/>
  
-* Bike ride tracking app with a simplistic UI
-* Entire UI done in code
-* Uses UIKit and CoreLocation
+* Glorified timer app
+* Learned how to setup and use a collection view
+* Uses UIKit and storyboard
 * Uses Core Data to persist data
 
 
