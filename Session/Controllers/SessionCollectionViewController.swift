@@ -20,7 +20,9 @@ class SessionCollectionViewController: UIViewController {
     var sessions : [Session] = [];
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();
+        NotificationSystem.checkForPermission();
+        
         setUpCollectionView();
         
         //load collection from core data
@@ -145,8 +147,6 @@ extension SessionCollectionViewController : UICollectionViewDelegate, UICollecti
         
         cell.title.text = sessions[indexPath.row].name;
         cell.hours.text = String(Int32(sessions[indexPath.row].totalSeconds / 3600)) + " hours";
-       // cell.title.textColor = color1.isDarkColor ? .white : .black;
-        
     
         return cell;
     }

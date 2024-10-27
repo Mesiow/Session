@@ -8,7 +8,6 @@
 import UIKit
 
 class SessionViewController: UIViewController {
-    
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var beginButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
@@ -20,6 +19,8 @@ class SessionViewController: UIViewController {
     
     var session : Session!
     var timer = Timer();
+    var cdTimer = Timer();
+    var countdownTimerEnabled : Bool = false;
     
     var delegate : SessionCollectionViewController!
     var index : IndexPath!
@@ -91,7 +92,7 @@ class SessionViewController: UIViewController {
         button.tintColor = color;
     }
     
-    
+   
     @IBAction func stopButtonReleased(_ sender: UIButton) {
         session.active = false;
         
